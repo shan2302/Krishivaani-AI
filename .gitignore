@@ -1,0 +1,143 @@
+# ============================================================
+# KrishiVaani AI — .gitignore
+# Covers: Java/Maven · Spring Boot · React/Node.js · Python
+#         Docker · IntelliJ IDEA · VS Code · Linux/macOS/Windows
+# ============================================================
+
+
+# ── Java / Maven ────────────────────────────────────────────
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
+replay_pid*
+
+
+# ── Spring Boot ─────────────────────────────────────────────
+# Keep application.properties / application.yml (shared config).
+# Ignore local secret overrides and environment files.
+.env
+.env.*
+!.env.example
+*.local.properties
+*.local.yml
+*.local.yaml
+application-local.properties
+application-local.yml
+application-local.yaml
+
+
+# ── Node.js / React ─────────────────────────────────────────
+node_modules/
+dist/
+build/
+coverage/
+.pnp
+.pnp.js
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.npm/
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnpm-store/
+.vite/
+
+
+# ── Python ──────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+ENV/
+.ipynb_checkpoints/
+*.egg-info/
+dist/
+*.egg
+
+
+# ── IntelliJ IDEA ───────────────────────────────────────────
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+
+# ── VS Code ─────────────────────────────────────────────────
+# Ignore machine-specific settings; allow shared workspace config if committed.
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
+.vscode/*.code-snippets
+.history/
+
+
+# ── macOS ───────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+
+# ── Windows ─────────────────────────────────────────────────
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+
+# ── Linux ───────────────────────────────────────────────────
+*~
+.fuse_hidden*
+.nfs*
+
+
+# ── Logs ────────────────────────────────────────────────────
+*.log
+logs/
+spring.log
+
+
+# ── Temporary / Editor files ────────────────────────────────
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+*.orig
+
+
+# ── Local database files ────────────────────────────────────
+# PostgreSQL migration scripts and schema files are NOT ignored.
+*.sqlite
+*.sqlite3
+*.db
+
+
+# ── Secrets / Credentials ───────────────────────────────────
+*.pem
+*.key
+*.p12
+*.jks
+*.pfx
+secrets/
+credentials/
+
+
+# ── Cache / Generated ───────────────────────────────────────
+.cache/
+.tmp/
