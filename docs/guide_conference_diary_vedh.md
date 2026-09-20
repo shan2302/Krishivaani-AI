@@ -7,11 +7,11 @@
 | Student Name | Vedh Nayak K |
 | Project | KrishiVaani-AI |
 | Student Role | Team Member |
-| Academic Year | [Enter academic year] |
-| Department | [Enter department] |
+| Academic Year | 26-27 |
+| Department | ISE |
 | Institution | RVITM |
-| Guide Name | [Enter guide name] |
-| Guide Designation | [Enter designation] |
+| Guide Name | Krupesha Sir |
+| Guide Designation | Assistant Professor |
 
 ---
 
