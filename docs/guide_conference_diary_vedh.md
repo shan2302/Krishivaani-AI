@@ -61,9 +61,9 @@ RAG-based approaches.
 
 ### Students Present
 - Vedh Nayak K
-- [Team Member]
-- [Team Member]
-- [Team Member]
+- S A Dheeraj
+- Shantanu Rathore Singh
+- Nithish Murthy
 
 ---
 
