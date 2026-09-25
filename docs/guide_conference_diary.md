@@ -10,8 +10,8 @@
 | Academic Year | 26-27 |
 | Department | ISE |
 | Institution | RVITM |
-| Guide Name | Krupesha Sir |
-| Guide Designation | Assistant Professor |
+| Guide Name | Dr Surbhi Agrawal |
+| Guide Designation | Hod &  Professor |
 
 ---
 
