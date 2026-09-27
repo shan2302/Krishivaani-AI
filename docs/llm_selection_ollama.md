@@ -1,18 +1,5 @@
 # Open-Source LLM Selection via Ollama
 
-## Project: KrishiVaani-AI
-
-**Task:** Research and select open-source LLM via Ollama  
-**Epic:** Research & Planning  
-**Week:** Week 1  
-**Story Points:** 5  
-**Assignee:** Vedh Nayak K  
-**Repository:** KrishiVaani-AI  
-**Selected LLM:** Qwen3 8B  
-**Ollama Model Identifier:** `qwen3:8b`  
-
----
-
 # 1. Objective
 
 The objective of this task is to research, evaluate, and select a

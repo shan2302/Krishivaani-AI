@@ -1,13 +1,4 @@
 # KV-002 — Literature Review on Multilingual RAG and Agricultural AI
-
-**Jira:** KV-002  
-**Epic:** Research & Planning  
-**Assignee:** Vedh  
-**Label:** researchreport  
-**Scope:** Multilingual agricultural question answering using English, Hindi, and Kannada
-
----
-
 ## 1. Introduction
 
 Agricultural information systems increasingly use Natural Language Processing (NLP), Large Language Models (LLMs), and conversational interfaces to make agricultural knowledge easier to access. However, agricultural question answering has an important reliability requirement: an answer that sounds fluent but contains unsupported or incorrect information can lead to poor farming decisions.
