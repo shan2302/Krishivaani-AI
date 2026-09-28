@@ -1,0 +1,40 @@
+{
+    "documents": [
+        {
+            "document_id": "ICAR_KHARIF_2025_EN",
+            "title": "ICAR Kharif Agro-Advisories for Farmers 2025",
+            "organization": "Indian Council of Agricultural Research",
+            "year": 2025,
+            "language": "English",
+            "region": "India",
+            "document_type": "Agro-Advisory",
+            "topics": [
+                "Crop Production",
+                "Fertilizer Management",
+                "Pest Management",
+                "Disease Management"
+            ],
+            "source_url": "https://icar.gov.in/en/icar-kharif-agro-advisories-farmers-2025-1",
+            "file": "raw/ICAR/English/ICAR_Kharif_Agro_Advisories_2025_English.pdf",
+            "verification_status": "pending_review"
+        },
+        {
+            "document_id": "ICAR_KHARIF_2025_REGIONAL",
+            "title": "ICAR Kharif Agro-Advisories for Farmers 2025 - Regional Languages",
+            "organization": "Indian Council of Agricultural Research",
+            "year": 2025,
+            "language": "Multilingual",
+            "region": "India",
+            "document_type": "Agro-Advisory",
+            "topics": [
+                "Crop Production",
+                "Fertilizer Management",
+                "Pest Management",
+                "Disease Management"
+            ],
+            "source_url": "https://icar.gov.in/en/icar-kharif-agro-advisories-farmers-2025-regional-languages-edition-1",
+            "file": "raw/ICAR/Regional_Languages/ICAR_Kharif_Agro_Advisories_2025_Regional_Languages.pdf",
+            "verification_status": "pending_review"
+        }
+    ]
+}
