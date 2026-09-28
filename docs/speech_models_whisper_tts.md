@@ -1,13 +1,5 @@
 # Research: Whisper STT and Open-Source TTS Options
 
-**Project:** KrishiVaani-AI  
-**Jira Task:** Research Whisper STT and open-source TTS options  
-**Epic:** Research & Planning  
-**Week:** 1  
-**Story Points:** 3  
-**Assignee:** Vedh Nayak K  
-**Status:** Research / Evaluation
-
 ## 1. Objective
 
 This task evaluates suitable open-source speech technologies for the KrishiVaani-AI multilingual agricultural assistant.
