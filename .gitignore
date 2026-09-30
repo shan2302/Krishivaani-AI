@@ -17,8 +17,12 @@ replay_pid*
 
 
 # ── Spring Boot ─────────────────────────────────────────────
-# Keep application.properties / application.yml (shared config).
-# Ignore local secret overrides and environment files.
+# application.properties only uses ${ENV_VAR} references — no secrets inside.
+# It IS committed so teammates get the correct config structure automatically.
+# Each teammate sets the actual values as environment variables in their shell
+# or IDE run config (IntelliJ: Run > Edit Configurations > Environment Variables).
+#
+# Ignore only local secret override files:
 .env
 .env.*
 !.env.example
