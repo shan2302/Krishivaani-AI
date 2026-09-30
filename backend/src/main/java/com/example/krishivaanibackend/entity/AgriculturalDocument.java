@@ -4,71 +4,70 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 /**
- * Represents a user agricultural question submitted to KrishiVaani AI.
+ * Represents an agricultural knowledge document stored for RAG retrieval.
  */
 @Entity
-@Table(name = "questions")
-public class Question {
+@Table(name = "agricultural_documents")
+public class AgriculturalDocument {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, length = 500)
+    private String title;
+
+    /** Full document content used for embedding / RAG */
     @Column(nullable = false, columnDefinition = "TEXT")
     private String content;
 
-    /** Language/locale of the question (e.g. "en", "hi", "ta") */
-    @Column(length = 10)
-    private String language;
+    /** Category tag (e.g. "pest-control", "soil-health", "irrigation") */
+    @Column(length = 100)
+    private String category;
 
-    /** AI-generated answer stored for caching / audit */
-    @Column(columnDefinition = "TEXT")
-    private String answer;
+    /** Source / citation for the document */
+    @Column(length = 500)
+    private String source;
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
-
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();
-        updatedAt  = LocalDateTime.now();
-    }
-
-    @PreUpdate
-    protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
     }
 
     // ── Constructors ──────────────────────────────────────────────────────────
 
-    public Question() {}
+    public AgriculturalDocument() {}
 
-    public Question(String content, String language) {
+    public AgriculturalDocument(String title, String content, String category, String source) {
+        this.title    = title;
         this.content  = content;
-        this.language = language;
+        this.category = category;
+        this.source   = source;
     }
 
     // ── Getters & Setters ─────────────────────────────────────────────────────
 
     public Long getId() { return id; }
 
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
+
     public String getContent() { return content; }
     public void setContent(String content) { this.content = content; }
 
-    public String getLanguage() { return language; }
-    public void setLanguage(String language) { this.language = language; }
+    public String getCategory() { return category; }
+    public void setCategory(String category) { this.category = category; }
 
-    public String getAnswer() { return answer; }
-    public void setAnswer(String answer) { this.answer = answer; }
+    public String getSource() { return source; }
+    public void setSource(String source) { this.source = source; }
 
     public LocalDateTime getCreatedAt() { return createdAt; }
-    public LocalDateTime getUpdatedAt() { return updatedAt; }
 
     @Override
     public String toString() {
-        return "Question{id=" + id + ", language='" + language + "', content='" + content + "'}";
+        return "AgriculturalDocument{id=" + id + ", title='" + title + "', category='" + category + "'}";
     }
 }
