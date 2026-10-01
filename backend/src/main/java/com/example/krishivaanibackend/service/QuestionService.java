@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
-
+@Transactional
 @Service
 public class QuestionService {
     private final QuestionRepository questionRepository;
@@ -40,5 +40,11 @@ public class QuestionService {
     public void deleteQuestion(Long id){
         questionRepository.deleteById(id);
     }
-    
+
+    public Question updateAnswer(Long id, String answer){
+        Question question = questionRepository.findById(id)
+                .orElseThrow(() -> new com.example.krishivaanibackend.exception.ResourceNotFoundException("Question", id));
+        question.setAnswer(answer);
+        return questionRepository.save(question);
+    }
 }

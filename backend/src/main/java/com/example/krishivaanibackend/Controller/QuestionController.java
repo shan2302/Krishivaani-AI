@@ -1,5 +1,7 @@
 package com.example.krishivaanibackend.Controller;
 
+import com.example.krishivaanibackend.dto.AnswerRequestDTO;
+import com.example.krishivaanibackend.dto.ApiResponse;
 import com.example.krishivaanibackend.dto.QuestionRequestDTO;
 import com.example.krishivaanibackend.dto.QuestionResponseDTO;
 import com.example.krishivaanibackend.entity.Question;
@@ -55,5 +57,14 @@ public class QuestionController {
         }
         questionService.deleteQuestion(id);
         return ResponseEntity.noContent().build();
+    }
+//    PATCH /api/v1/questions/{id}/answer - Update the answer of a specific question by ID
+    @PatchMapping("/{id}/answer")
+    public ResponseEntity<ApiResponse<QuestionResponseDTO>> updateAnswer(
+            @PathVariable Long id,
+            @Valid @RequestBody AnswerRequestDTO request
+            ) {
+        Question updated = questionService.updateAnswer(id,request.getAnswer());
+        return ResponseEntity.ok(ApiResponse.ok(QuestionResponseDTO.from(updated),"Answer updated successfully"));
     }
 }
