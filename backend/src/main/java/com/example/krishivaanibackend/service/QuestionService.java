@@ -2,6 +2,7 @@ package com.example.krishivaanibackend.service;
 
 
 import com.example.krishivaanibackend.entity.Question;
+import com.example.krishivaanibackend.exception.ResourceNotFoundException;
 import com.example.krishivaanibackend.repository.QuestionRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -43,7 +44,7 @@ public class QuestionService {
 
     public Question updateAnswer(Long id, String answer){
         Question question = questionRepository.findById(id)
-                .orElseThrow(() -> new com.example.krishivaanibackend.exception.ResourceNotFoundException("Question", id));
+                .orElseThrow(() -> new ResourceNotFoundException("Question", id));
         question.setAnswer(answer);
         return questionRepository.save(question);
     }

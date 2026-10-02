@@ -7,7 +7,13 @@ import java.time.LocalDateTime;
  * Represents a user agricultural question submitted to KrishiVaani AI.
  */
 @Entity
-@Table(name = "questions")
+@Table(
+        name = "questions",
+        indexes = {
+                @Index(name = "idx_questions_language", columnList = "language"),
+                @Index(name = "idx_questions_created_at", columnList = "created_at")
+        }
+)
 public class Question {
 
     @Id
