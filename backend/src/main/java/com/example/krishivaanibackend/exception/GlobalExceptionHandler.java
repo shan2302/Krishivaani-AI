@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.multipart.MaxUploadSizeExceededException;
+
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 /**
  * Centralised exception → JSON error response mapping.
@@ -76,5 +79,11 @@ public class GlobalExceptionHandler {
                 "An unexpected error occurred. Please try again later.",
                 List.of(ex.getMessage()), request.getRequestURI());
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(body);
+    }
+
+
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<Map<String,String>> handleRuntimeException(RuntimeException ex){
+        return ResponseEntity.badRequest().body(Map.of("message",ex.getMessage()));
     }
 }
