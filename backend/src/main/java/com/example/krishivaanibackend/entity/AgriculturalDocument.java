@@ -7,7 +7,12 @@ import java.time.LocalDateTime;
  * Represents an agricultural knowledge document stored for RAG retrieval.
  */
 @Entity
-@Table(name = "agricultural_documents")
+@Table(name = "agricultural_documents",
+    indexes = {
+        @Index(name= "idx_agrdoc_category", columnList = "category"),
+        @Index(name= "idx_agrdoc_created_at", columnList = "created_at")
+    }
+)
 public class AgriculturalDocument {
 
     @Id
