@@ -204,3 +204,74 @@ RAG-based approaches.
 8. Maintain the chronological order of conferences.
 9. Keep individual contributions clearly documented.
 10. Use the diary as supporting documentation during academic reviews.
+
+
+## Review 1
+
+### Review Details
+
+- **Review:** Review 1
+- **Student:** Vedh Nayak K
+- **Project:** KrishiVaani-AI
+- **Role:** Development / Research
+- **Date:** [Enter Review 1 date]
+- **Mode:** [Offline / Online]
+- **Guide:** [Enter guide name]
+
+### Review Objectives
+
+- Present the progress made during the initial project phase.
+- Discuss the research and planning completed for KrishiVaani-AI.
+- Review the proposed multilingual RAG-based agricultural AI system.
+- Discuss the planned technologies and implementation approach.
+- Receive feedback and guidance for the next development phase.
+
+### Work Completed Before Review 1
+
+- Defined the research question, objectives, and project scope.
+- Completed literature review on multilingual RAG and agricultural AI.
+- Created the project report structure and literature log.
+- Created the guide conference diary structure.
+- Researched and selected Qwen3 8B through Ollama as the open-source LLM.
+- Researched Whisper STT and open-source TTS options.
+- Contributed to the project's documentation and technical planning.
+
+### Discussion During Review
+
+- Presented the current project progress and research findings.
+- Discussed the multilingual requirement for English, Hindi, and Kannada.
+- Discussed the proposed RAG architecture and use of agricultural knowledge sources.
+- Discussed the planned voice input and output pipeline.
+- Discussed the next phase of React frontend and system implementation.
+
+### Guide Feedback
+
+- Continue with the planned implementation of the system.
+- Maintain proper project documentation throughout development.
+- Focus on multilingual support and reliable agricultural responses.
+- Ensure that implementation progress is aligned with the defined project objectives.
+
+### Individual Contribution – Vedh
+
+- Conducted research related to multilingual RAG and agricultural AI.
+- Documented the project research questions and objectives.
+- Prepared the literature review and literature log.
+- Researched Qwen3 8B for local LLM deployment using Ollama.
+- Researched Whisper STT and open-source TTS technologies.
+- Maintained the guide conference diary and project documentation.
+
+### Action Items After Review 1
+
+| Task | Responsible | Status |
+|---|---|---|
+| Build responsive React frontend | Vedh | Planned |
+| Continue LLM/RAG integration research | Team | Planned |
+| Evaluate speech technologies | Vedh | Planned |
+| Continue project documentation | Vedh | Ongoing |
+
+### Next Steps
+
+- Begin React frontend development using Bootstrap 5.
+- Continue backend and RAG implementation.
+- Evaluate the selected speech technologies through practical testing.
+- Maintain the conference diary with subsequent review and meeting updates.
