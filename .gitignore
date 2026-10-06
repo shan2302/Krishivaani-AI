@@ -141,3 +141,9 @@ credentials/
 # ── Cache / Generated ───────────────────────────────────────
 .cache/
 .tmp/
+
+# Python research environment
+.venv-research/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
