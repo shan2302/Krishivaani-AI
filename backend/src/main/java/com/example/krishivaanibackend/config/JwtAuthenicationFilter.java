@@ -16,6 +16,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 import java.util.Collections;
 
+@org.springframework.stereotype.Component
 public class JwtAuthenicationFilter extends OncePerRequestFilter {
 
     private final JwtService jwtService;
@@ -54,7 +55,7 @@ public class JwtAuthenicationFilter extends OncePerRequestFilter {
                 authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 SecurityContextHolder.getContext().setAuthentication(authToken);
             }
-            filterChain.doFilter(request,response);
         }
+        filterChain.doFilter(request,response);
     }
 }
