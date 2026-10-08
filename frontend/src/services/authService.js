@@ -35,5 +35,5 @@ export function removeToken() {
 }
 
 export function isLoggedIn() {
-    return !!getToken();
+     return !!localStorage.getItem('kv_token');
 }
