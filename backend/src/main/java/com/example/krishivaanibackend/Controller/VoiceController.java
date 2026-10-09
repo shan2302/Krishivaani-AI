@@ -9,7 +9,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/api/v1/voice")
-@CrossOrigin(origins = "*")
 public class VoiceController {
     private final SpeechService speechService;
     public VoiceController(SpeechService speechService){

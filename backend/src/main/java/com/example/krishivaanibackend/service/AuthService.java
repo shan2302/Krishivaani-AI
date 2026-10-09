@@ -5,7 +5,10 @@ import com.example.krishivaanibackend.dto.LoginRequestDTO;
 import com.example.krishivaanibackend.dto.RegisterRequestDTO;
 import com.example.krishivaanibackend.entity.User;
 import com.example.krishivaanibackend.repository.UserRepository;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,11 +16,14 @@ public class AuthService {
 
     private final UserRepository userRepository;
     private final JwtService jwtService;
-    private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    private final PasswordEncoder passwordEncoder;
+    private final AuthenticationManager authenticationManager;
 
-    public AuthService(UserRepository userRepository, JwtService jwtService) {
+    public AuthService(UserRepository userRepository, JwtService jwtService, PasswordEncoder passwordEncoder, AuthenticationManager authenticationManager) {
         this.userRepository = userRepository;
         this.jwtService = jwtService;
+        this.passwordEncoder =  passwordEncoder;
+        this.authenticationManager = authenticationManager;
     }
 
     public AuthResponseDTO register(RegisterRequestDTO dto)
@@ -36,14 +42,13 @@ public class AuthService {
     }
 
     public AuthResponseDTO login(LoginRequestDTO dto){
+        authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(dto.getEmail(), dto.getPassword())
+        );
         User user = userRepository.findByEmail(dto.getEmail())
-                .orElseThrow(() -> new RuntimeException("Invalid email or password"));
-
-        if(!passwordEncoder.matches(dto.getPassword(), user.getPassword())){
-            throw new RuntimeException("Invalid Email or Password ");
-        }
+                .orElseThrow(() -> new RuntimeException("User not found"));
 
         String token = jwtService.generateToken(user.getEmail());
-        return new AuthResponseDTO(token, user.getName(), user.getEmail(), "User logged in successfully");
+        return new AuthResponseDTO(token, user.getName(), user.getEmail(), "User Logged in Successfully");
     }
 }
