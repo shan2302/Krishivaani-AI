@@ -979,3 +979,45 @@ backend integration to be completed as subsequent development work.
 
 **Final Decision:** Qwen3 8B selected by the project team for
 KrishiVaani-AI.
+
+
+
+## Week 3: Ollama Setup and LLM Verification
+
+### Objective
+Set up Ollama locally and verify the selected open-source language model for the KrishiVaani-AI project.
+
+### Selected Model
+- Model: Qwen3 8B
+- Ollama model identifier: `qwen3:8b`
+- Parameters: 8.19 billion
+- Quantization: Q4_K_M
+- Approximate download size: 5.2 GB
+- License: Apache License 2.0
+
+### Why This Model?
+Qwen3 8B was selected for local execution, multilingual question answering, and integration into the project's future agricultural Retrieval-Augmented Generation (RAG) workflow. Local execution allows development without depending on a hosted LLM API.
+
+### Setup
+1. Install Ollama.
+2. Download the model using `ollama pull qwen3:8b`.
+3. Run the model using `ollama run qwen3:8b`.
+4. Verify the local model list using `ollama list`.
+5. Test the local API at `http://localhost:11434`.
+
+### Verification Results
+- Ollama installation: Completed.
+- Qwen3 8B download: Completed.
+- Model generation test: [Successful].
+- Local API test: [Successful].
+- Multilingual test: [Successful].
+
+### Role in the RAG Pipeline
+The LLM generates answers using the user's question and relevant context retrieved from the agricultural knowledge base. An embedding model will separately convert documents and queries into vectors for semantic retrieval.
+
+### Limitations and Next Steps
+- Evaluate answer quality on representative agricultural questions.
+- Test English, Hindi, and Kannada responses.
+- Select and test a separate embedding model.
+- Integrate the LLM with the project's RAG pipeline.
+- Evaluate factual grounding and unsupported answers before relying on outputs for agricultural advice.
