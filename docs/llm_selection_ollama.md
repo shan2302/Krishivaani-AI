@@ -1021,3 +1021,7 @@ The LLM generates answers using the user's question and relevant context retriev
 - Select and test a separate embedding model.
 - Integrate the LLM with the project's RAG pipeline.
 - Evaluate factual grounding and unsupported answers before relying on outputs for agricultural advice.
+
+**Work completed:** Set up Ollama locally and downloaded the selected Qwen3 8B model. Verified model availability and tested local generation and API access. Documented the model configuration, selection rationale, verification results, and next steps for RAG integration in `docs/llm_selection_ollama.md`.
+
+**Next steps:** Evaluate agricultural answer quality, select an embedding model, and integrate the LLM with the RAG pipeline.
