@@ -1,0 +1,52 @@
+.kv-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 12px 0;
+  padding: 16px;
+  border: 1px solid #f0caca;
+  border-radius: 14px;
+  background: #fff5f5;
+  color: #842b2b;
+}
+
+.kv-error-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #f5dada;
+  font-weight: 700;
+}
+
+.kv-error-content {
+  min-width: 0;
+}
+
+.kv-error-content p {
+  margin: 6px 0 12px;
+  overflow-wrap: anywhere;
+  font-size: 14px;
+}
+
+.kv-retry-button {
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 8px;
+  background: #287344;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.kv-retry-button:hover {
+  background: #1f5c35;
+}
+
+.kv-retry-button:focus-visible {
+  outline: 2px solid #287344;
+  outline-offset: 3px;
+}
