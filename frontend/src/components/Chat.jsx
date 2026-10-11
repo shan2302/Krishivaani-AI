@@ -2,9 +2,13 @@
 import { useEffect, useRef, useState } from 'react';
 import Message from './Message';
 import './Chat.css';
+import LoadingSpinner from './LoadingSpinner';
+import ErrorState from './ErrorState';
 
 function Chat() {
-  const [messages, setMessages] = useState([
+    const [error, setError] = useState('');
+    const [lastFailedMessage, setLastFailedMessage] = useState('');
+    const [messages, setMessages] = useState([
     {
       id: 1,
       role: 'assistant',
@@ -12,7 +16,7 @@ function Chat() {
         'Namaste! I am KrishiVaani AI. Ask me anything about farming, crops, soil health, or irrigation.',
       time: 'Welcome',
     },
-  ]);
+    ]);
 
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -22,12 +26,16 @@ function Chat() {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, loading]);
 
-  async function sendMessage(event) {
-    event.preventDefault();
+  async function sendMessage(event, retryText) {
+    event?.preventDefault();
 
-    const text = input.trim();
+    const isRetry = typeof retryText === 'string';
+    const text = (isRetry ? retryText : input).trim();
 
     if (!text || loading) return;
+
+    setError('');
+    setLastFailedMessage('');
 
     const userMessage = {
       id: Date.now(),
@@ -39,8 +47,10 @@ function Chat() {
       }),
     };
 
-    setMessages((previous) => [...previous, userMessage]);
-    setInput('');
+    if (!isRetry) {
+      setMessages((previous) => [...previous, userMessage]);
+      setInput('');
+    }
     setLoading(true);
 
     try {
@@ -96,15 +106,10 @@ function Chat() {
         },
       ]);
     } catch (error) {
-      setMessages((previous) => [
-        ...previous,
-        {
-          id: Date.now() + 2,
-          role: 'assistant',
-          content: `Sorry, I couldn't get a response. ${error.message}`,
-          time: 'Error',
-        },
-      ]);
+      setError(
+        error.message || 'Please check your connection and try again.'
+      );
+      setLastFailedMessage(text);
     } finally {
       setLoading(false);
     }
@@ -177,13 +182,13 @@ function Chat() {
             <Message key={message.id} message={message} />
           ))}
 
-          {loading && (
-            <div className="typing-indicator" role="status">
-              <span />
-              <span />
-              <span />
-              <small>KrishiVaani is thinking...</small>
-            </div>
+          {loading && <LoadingSpinner />}
+
+          {error && (
+            <ErrorState
+              message={error}
+              onRetry={() => sendMessage(null, lastFailedMessage)}
+            />
           )}
 
           <div ref={bottomRef} />
