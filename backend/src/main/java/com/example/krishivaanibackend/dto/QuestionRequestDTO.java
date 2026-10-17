@@ -1,6 +1,5 @@
 package com.example.krishivaanibackend.dto;
 
-
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
@@ -18,7 +17,9 @@ public class QuestionRequestDTO {
         this.language = language;
     }
 
-//    Getter and Setter
+
+
+    //    Getter and Setter
     public String getContent() { return content; }
     public void setContent(String content) { this.content = content; }
 

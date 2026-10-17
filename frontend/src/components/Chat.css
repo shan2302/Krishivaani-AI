@@ -199,12 +199,14 @@
   line-height: 1.65;
   overflow-wrap: anywhere;
   white-space: pre-wrap;
+  color: #111827;
 }
 
 .user-message .message-bubble {
   background: #e1efe2;
   border-color: #e1efe2;
   border-radius: 16px 4px 16px 16px;
+  color: #111827;
 }
 
 .message-time {
@@ -279,6 +281,13 @@
   padding: 10px;
   font: inherit;
   background: transparent;
+  color: #000000;
+  font-weight: 500;
+}
+
+.chat-composer textarea::placeholder {
+  color: #6b7280;
+  font-weight: 400;
 }
 
 .chat-composer form button {

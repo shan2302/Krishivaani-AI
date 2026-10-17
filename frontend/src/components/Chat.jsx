@@ -64,6 +64,12 @@ function Chat() {
 
       const token = localStorage.getItem('kv_token');
 
+      const detectLanguage = (str) => {
+        if (/[\u0900-\u097F]/.test(str)) return 'hi';
+        if (/[\u0C80-\u0CFF]/.test(str)) return 'kn';
+        return 'en';
+      };
+
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
@@ -72,7 +78,7 @@ function Chat() {
         },
         body: JSON.stringify({
           content: text,
-          language: 'en',
+          language: detectLanguage(text),
         }),
       });
 
