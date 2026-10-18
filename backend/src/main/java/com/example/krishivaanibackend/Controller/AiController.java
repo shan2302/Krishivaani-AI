@@ -6,8 +6,10 @@ import com.example.krishivaanibackend.dto.QuestionRequestDTO;
 import com.example.krishivaanibackend.dto.QuestionResponseDTO;
 import com.example.krishivaanibackend.entity.Question;
 import com.example.krishivaanibackend.service.AIService;
+import com.example.krishivaanibackend.service.EmbeddingService;
 import com.example.krishivaanibackend.service.QuestionService;
 
+import com.example.krishivaanibackend.service.RagService;
 import jakarta.validation.Valid;
 
 
@@ -21,12 +23,16 @@ public class AiController {
 
     private final QuestionService questionService;
     private final AIService aiService;
+    private final RagService ragService;
+    private final EmbeddingService embeddingService;
 
     public AiController(
             QuestionService questionService,
-            AIService aiService) {
+            AIService aiService, RagService ragService, EmbeddingService embeddingService) {
         this.questionService = questionService;
         this.aiService = aiService;
+        this.ragService = ragService;
+        this.embeddingService = embeddingService;
     }
 
     // POST /api/v1/ai/ask
@@ -45,7 +51,7 @@ public class AiController {
         );
 
 //        2. Generate Answer via Grq LLM
-        String aiAnswer = aiService.generateAnswer(
+        String aiAnswer = ragService.answerWithRag(
                 request.getContent(),
                 request.getLanguage()
         );
@@ -63,5 +69,11 @@ public class AiController {
                         QuestionResponseDTO.from(withAnswer),
                         "Question Answered successfully"
                 ));
+    }
+//    Add new admin endpoint:
+    @PostMapping("/ingest")
+    public ResponseEntity<ApiResponse<String>> ingest() {
+        int count = embeddingService.embedAll();
+        return ResponseEntity.ok(ApiResponse.ok("Ingestion complete", "Successfully embedded " + count + " documents into vector store"));
     }
 }
