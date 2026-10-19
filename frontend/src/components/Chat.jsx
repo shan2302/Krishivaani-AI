@@ -54,13 +54,7 @@ function Chat() {
     setLoading(true);
 
     try {
-      const apiUrl = import.meta.env.VITE_CHAT_API_URL;
-
-      if (!apiUrl) {
-        throw new Error(
-          'Chat API is not configured. Set VITE_CHAT_API_URL after confirming the backend endpoint.'
-        );
-      }
+      const apiUrl = import.meta.env.VITE_CHAT_API_URL || 'http://localhost:8080/api/v1/chat/message';
 
       const token = localStorage.getItem('kv_token');
 

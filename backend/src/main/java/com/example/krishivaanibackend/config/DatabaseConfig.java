@@ -1,24 +1,34 @@
 package com.example.krishivaanibackend.config;
 
+import com.example.krishivaanibackend.service.EmbeddingService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * Database configuration for KrishiVaani AI backend.
- *
- * <p>Datasource connection properties are managed via {@code application.properties}
- * (or environment variables DB_URL, DB_USERNAME, DB_PASSWORD for production).
- *
- * <p>Hibernate DDL auto is set to {@code update} so the schema is created/migrated
- * automatically on startup. Switch to {@code validate} for production once schema
- * is stable, and use a migration tool (e.g. Flyway/Liquibase) for schema versioning.
  */
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "com.example.krishivaanibackend.repository")
 public class DatabaseConfig {
-    // Datasource bean is auto-configured by Spring Boot via application.properties.
-    // Add explicit DataSource / EntityManagerFactory beans here only if custom
-    // configuration (e.g. multi-tenancy, multiple datasources) is required.
+
+    private static final Logger log = LoggerFactory.getLogger(DatabaseConfig.class);
+
+    @Bean
+    public CommandLineRunner initAgriculturalVectors(EmbeddingService embeddingService) {
+        return args -> {
+            try {
+                log.info("Running automatic agricultural document & vector initialization...");
+                int count = embeddingService.embedAll();
+                log.info("Agricultural vector initialization complete: {} documents ready in PgVector.", count);
+            } catch (Exception e) {
+                log.error("Failed to initialize agricultural vectors on startup: {}", e.getMessage(), e);
+            }
+        };
+    }
 }
